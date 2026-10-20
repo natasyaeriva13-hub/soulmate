@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Piece of My Heart ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --burgundy: #741f36;
+  --rose: #c47b8f;
+  --cream: #f6e9e7;
+  --black: #100b0e;
+  --panel: #1b1015;
+  --muted: #c5a9ad;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+nav {
+  width: 90%;
+  max-width: 920px;
+  margin: auto;
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.logo {
+  font: 24px 'Cormorant Garamond', serif;
+  color: var(--cream);
+  letter-spacing: 0;
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.eyebrow {
+  color: var(--rose);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(58px, 10vw, 120px);
+  line-height: .9;
+  margin: 30px 0;
+  letter-spacing: -3px;
+}
+
+em {
+  color: var(--rose);
+}
+
+.hero p {
+  max-width: 480px;
+  margin: 25px auto;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.heart {
+  color: var(--rose);
+  display: inline-block;
+  animation: beat 1.5s infinite;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 23px;
+  border: 1px solid var(--burgundy);
+  color: var(--cream);
+  background: transparent;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.button:hover {
+  background: var(--burgundy);
+  transform: translateY(-3px);
+}
+
+.divider {
+  width: 80%;
+  height: 1px;
+  margin: 20px auto 80px;
+  background: linear-gradient(90deg, transparent, var(--burgundy), transparent);
+}
+
+section {
+  width: 90%;
+  max-width: 850px;
+  margin: auto;
+  padding-bottom: 100px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.kicker {
+  color: var(--rose);
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: clamp(40px, 7vw, 70px);
+  line-height: 1;
+}
+
+.letter {
+  padding: clamp(25px, 6vw, 60px);
+  border: 1px solid #43212c;
+  background: linear-gradient(145deg, #211118, #130c10);
+}
+
+.letter p {
+  font: 23px/1.8 'Cormorant Garamond', serif;
+  color: #ead8d9;
+  margin-bottom: 24px;
+}
+
+.letter p em {
+  color: #e6a0b2;
+}
+
+.signature {
+  text-align: right;
+  font: italic 28px 'Cormorant Garamond', serif;
+  color: var(--rose);
+  margin-top: 35px;
+}
+
+.nickname-card {
+  padding: clamp(24px, 5vw, 45px);
+  border: 1px solid #43212c;
+  background: var(--panel);
+}
+
+.nickname-card > p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  color: var(--rose);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+select {
+  width: 100%;
+  padding: 17px;
+  margin-top: 12px;
+  background: var(--black);
+  color: var(--cream);
+  border: 1px solid #754055;
+  font: 15px 'DM Sans', sans-serif;
+}
+
+.nickname-result {
+  margin-top: 22px;
+  padding: 22px;
+  background: #211118;
+  border-left: 2px solid var(--rose);
+}
+
+.nickname-result h3 {
+  color: #e5a2b3;
+  font-size: 32px;
+}
+
+.nickname-result p {
+  margin-top: 10px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.music-card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 25px;
+  background: linear-gradient(110deg, #28121b, #160e12);
+  border: 1px solid #43212c;
+}
+
+.album {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, #b86a7d, #57182e, #1a0d13);
+  font-size: 35px;
+}
+
+.music-info h3 {
+  font-size: 30px;
+}
+
+.music-info p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 6px;
+  line-height: 1.7;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.play-button {
+  margin-top: 12px;
+  min-width: 105px;
+}
+
+#musicStatus {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--rose);
+}
+
+.music-note {
+  margin-top: 12px !important;
+  font-size: 12px !important;
+  line-height: 1.7;
+}
+
+.music-note strong {
+  color: var(--cream);
+}
+
+#loveSong {
+  display: none;
+}
+
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.promise {
+  border: 1px solid #39202a;
+  background: var(--panel);
+  padding: 24px 18px;
+}
+
+.promise span {
+  color: var(--rose);
+}
+
+.promise h3 {
+  font-size: 27px;
+  margin: 15px 0 8px;
+}
+
+.promise p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.closing {
+  text-align: center;
+  padding: 50px 0 100px;
+}
+
+.closing h2 {
+  font-size: clamp(45px, 9vw, 85px);
+  margin-top: 25px;
+}
+
+.closing p {
+  max-width: 500px;
+  margin: 25px auto;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+#surpriseMessage {
+  display: none;
+  color: #e7a1b2;
+  font: 27px/1.6 'Cormorant Garamond', serif;
+}
+
+footer {
+  padding: 25px;
+  border-top: 1px solid #39202a;
+  text-align: center;
+  color: #80636c;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  color: #b4516e;
+  pointer-events: none;
+  z-index: 10;
+  animation: floatUp 7s linear forwards;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.2); }
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .promise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-card {
+    align-items: flex-start;
+    padding: 17px;
+  }
+
+  .album {
+    width: 65px;
+    height: 65px;
+  }
+
+  .letter p {
+    font-size: 21px;
+  }
+
+  nav {
+    font-size: 9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">for my person ♡</div>
+  <div>A LITTLE CORNER OF US</div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">A love letter, just for you</div>
+    <h1>A Little<br><em>Piece of</em> My Heart.</h1>
+    <div class="heart">♡</div>
+    <p>
+      Kalau dunia terasa terlalu ramai, semoga halaman kecil ini
+      bisa jadi tempat paling tenang untuk kamu pulang.
+    </p>
+    <a href="#letter" class="button">READ YOUR LETTER ↓</a>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<section id="letter">
+  <div class="heading">
+    <div class="kicker">01 — WORDS I MEAN</div>
+    <h2>My Dearest May</h2>
+  </div>
+
+  <article class="letter">
+    <p>𓏲ּ 𝐓𝐎 𝐌𝐘 𝐌𝐀𝐘, 𝐌𝐘 𝐍𝐄𝐖 𝐅𝐀𝐕𝐎𝐑𝐈𝐓𝐄 𝐏𝐄𝐑𝐒𝐎𝐍. ♡</p>
+    <p>Dear, May.</p>
+
+    <p>Perhaps this is just the beginning of our story, but somehow, I'm already looking forward to all the little things we'll get to experience together. The random conversations, the unexpected laughter, the silly arguments, the moments of missing each other, and even the ordinary days that might become special simply because I get to share them with you.</p>
+
+    <p>It's a little funny how someone can slowly become a part of your thoughts without even realizing it. And now, here you are, someone I get to call mine. Someone I want to know a little more every day, someone whose happiness I want to be a part of, and someone I hope will find a little comfort in having me around.</p>
+
+    <p>May, I know we're still at the very beginning. We haven't learned every little detail about each other, and we probably still have so many things to understand. But I don't want us to be in a hurry. I'd rather take my time learning how you think, what makes you smile, what hurts you, and what makes you feel loved.</p>
+
+    <p>I want to know the version of you that the world doesn't always get to see. The quiet you, the tired you, the overthinking you, and the you that sometimes needs reassurance without knowing how to ask for it.</p>
+
+    <p>I want you to feel that you don't always have to be okay around me. You don't have to hide your feelings just to keep things peaceful. If something bothers you, let's talk about it. If we misunderstand each other, let's learn to listen. And if life ever gets a little difficult, I hope we remember that we're on the same side.</p>
+
+    <p>I'm not here to promise you a perfect love story, May. I'm here because I want to give this story a genuine chance. I want us to grow, to learn, and to become better partners without losing ourselves along the way.</p>
+
+    <p>And honestly? I think there's something beautiful about new beginnings. The fact that we still have our firsts waiting for us, the memories we haven't made, the places we haven't visited together, and all the little moments that will someday become stories we tell each other again and again.</p>
+
+    <p>If I could wish for one thing for us, it would be that we never stop being curious about each other. That even after knowing one another for a long time, we still ask how our day went, still care about the smallest details, and still choose to make each other feel appreciated.</p>
+
+    <p>I don't need us to have everything figured out right now. I just hope we can keep choosing honesty, kindness, and each other as we discover what love means to us.</p>
+
+    <p>Thank you for being here, May. Thank you for becoming a part of this new chapter of my life. I don't know exactly where this story will take us, but I'm genuinely happy that I get to begin it with you.</p>
+
+    <p>So, here's to us. To this little beginning, to the affection we're learning to give, and to the possibility of building something beautiful together. <em>And if someday you happen to read this letter again, I hope you'll remember that once, at the very beginning of our story, there was someone who was genuinely happy to have met you..</em></p>
+
+    <p>Someone who was excited about the little things. Someone who wanted to know you beyond the surface.</p>
+
+    <p>Someone who hoped to make you feel loved, not only through words, but through the way they treated you.</p>
+
+    <p><em>And that someone is writing this letter for you now..</em> It's a new chapter, May. And I'm glad you're in it. ♡</p>
+
+    <div class="signature">
+      With love,<br>
+      *Someone who's happy to call you theirs.* 𐙚
+    </div>
+  </article>
+</section>
+
+<section id="nickname">
+  <div class="heading">
+    <div class="kicker">02 — JUST BETWEEN US</div>
+    <h2>Pick your lovely nickname.</h2>
+  </div>
+
+  <div class="nickname-card">
+    <p>Setiap orang punya nama, tapi kita boleh punya panggilan kecil yang rasanya cuma milik kita. Pilih yang paling kamu suka, sayang.</p>
+
+    <label for="nicknameSelect">Your special name</label>
+
+    <select id="nicknameSelect">
+      <option value="">— choose your little nickname —</option>
+      <option value="Dubai Ciwi Cuki">Dubai Ciwi Cuki</option>
+      <option value="Tirek Mentai">Tirek Mentai</option>
+      <option value="Kue Bolu Gulung">Kue Bolu Gulung</option>
+      <option value="Mi Amore Media Lavanya">Mi Amore Media Lavanya</option>
+    </select>
+
+    <div class="nickname-result">
+      <h3 id="nicknameTitle">Your name goes here ♡</h3>
+      <p id="nicknameDesc">Pilih satu panggilan di atas untuk membaca pesan kecil khusus untukmu.</p>
+    </div>
+  </div>
+</section>
+
+<section id="song">
+  <div class="heading">
+    <div class="kicker">03 — PRESS PLAY, THINK OF US</div>
+    <h2>A song for my soulmate.</h2>
+  </div>
+
+  <div class="music-card">
+    <div class="album">♫</div>
+
+    <div class="music-info">
+      <h3>Dear Soulmate</h3>
+      <p>Laufey · a little song for you</p>
+
+      <div class="player-controls">
+        <button class="button play-button" id="playMusicBtn" type="button">▶ PLAY</button>
+        <span id="musicStatus" aria-live="polite">ready when you are ♡</span>
+      </div>
+
+      <audio id="loveSong" preload="metadata">
+        <source src="Dear Soulmate - Laufey.m4a" type="audio/mpeg">
+        Browser kamu tidak mendukung pemutar audio.
+      </audio>
+
+      
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="heading">
+    <div class="kicker">04 — LITTLE PROMISES</div>
+    <h2>The soft kind of love.</h2>
+  </div>
+
+  <div class="promise-grid">
+    <div class="promise">
+      <span>♡ 01</span>
+      <h3>To listen</h3>
+      <p>Mendengarkan dengan sungguh-sungguh, bukan sekadar menunggu giliran untuk berbicara.</p>
+    </div>
+
+    <div class="promise">
+      <span>♡ 02</span>
+      <h3>To be gentle</h3>
+      <p>Memilih kata-kata dengan hati-hati, terutama ketika hari sedang terasa berat.</p>
+    </div>
+
+    <div class="promise">
+      <span>♡ 03</span>
+      <h3>To keep choosing</h3>
+      <p>Terus bertumbuh, memberi ruang, dan merayakan hal-hal kecil yang kita punya.</p>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="heart">♡</div>
+
+  <h2>In every universe,<br><em>I'd find you.</em></h2>
+
+  <p>Sampai semesta memberi kita lebih banyak cerita, semoga kamu selalu ingat: ada seseorang yang merasa harinya sedikit lebih indah karena kamu ada.</p>
+
+  <button class="button" id="surpriseBtn" type="button">
+    ONE LAST LITTLE THING ♡
+  </button>
+
+  <p id="surpriseMessage">
+    Psst… kalau belum ada yang bilang hari ini:
+    kamu itu kesayangan. Jangan lupa senyum, ya. ♡
+  </p>
+</section>
+
+<footer>
+  MADE WITH A LITTLE TOO MUCH LOVE · JUST FOR YOU ♡
+</footer>
+
+<script>
+const loveSong = document.getElementById("loveSong");
+const playMusicBtn = document.getElementById("playMusicBtn");
+const musicStatus = document.getElementById("musicStatus");
+
+playMusicBtn.addEventListener("click", async () => {
+  if (loveSong.paused) {
+    try {
+      await loveSong.play();
+      playMusicBtn.textContent = "Ⅱ PAUSE";
+      musicStatus.textContent = "now playing, just for you ♡";
+    } catch (error) {
+      musicStatus.textContent =
+        "Audio belum ditemukan. Taruh dear-soulmate.mp3 di folder yang sama.";
+    }
+  } else {
+    loveSong.pause();
+    playMusicBtn.textContent = "▶ PLAY";
+    musicStatus.textContent = "paused ♡";
+  }
+});
+
+loveSong.addEventListener("ended", () => {
+  playMusicBtn.textContent = "▶ PLAY";
+  musicStatus.textContent = "replay whenever you want ♡";
+});
+
+const messages = {
+  "Dubai Ciwi Cuki":
+    "Dubai ciwi, si paling punya tempat spesial di hati. Jangan lupa, kamu itu gemas bahkan saat kamu nggak sadar. ♡",
+
+  "Tirek Mentai":
+    "Tirek mentaiii, nama yang random tapi pemiliknya tetap jadi favorit. Sini, dapat satu peluk virtual dulu. ♡",
+
+  "Kue Bolu Gulung":
+    "Kue bolu gulung kesayangan, semoga harimu semanis kamu dan semoga kamu selalu merasa disayang. ♡",
+
+  "Mi Amore Media Lavanya":
+    "Mi amore media lavanya, my love, my soft place, my favorite little universe. You mean more than words can hold. ♡"
+};
+
+const nicknameSelect = document.getElementById("nicknameSelect");
+
+nicknameSelect.addEventListener("change", function () {
+  const name = this.value;
+
+  document.getElementById("nicknameTitle").textContent =
+    name || "Your name goes here ♡";
+
+  document.getElementById("nicknameDesc").textContent =
+    messages[name] ||
+    "Pilih satu panggilan di atas untuk membaca pesan kecil khusus untukmu.";
+
+  if (name) createHearts(5);
+});
+
+document.getElementById("surpriseBtn").addEventListener("click", function () {
+  const message = document.getElementById("surpriseMessage");
+
+  if (message.style.display === "block") {
+    message.style.display = "none";
+  } else {
+    message.style.display = "block";
+    createHearts(18);
+  }
+});
+
+function createHearts(count = 1) {
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "floating-heart";
+    heart.textContent = ["♡", "♥", "✧"][
+      Math.floor(Math.random() * 3)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 14 + Math.random() * 22 + "px";
+    heart.style.animationDuration = 5 + Math.random() * 4 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 9500);
+  }
+}
+
+setInterval(() => {
+  if (Math.random() > 0.35) createHearts(1);
+}, 2600);
+</script>
+
+</body>
+</html>
